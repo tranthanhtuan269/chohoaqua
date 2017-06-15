@@ -16,7 +16,7 @@
           <div class="img-prd"><img class="banner-image" src="<?php echo URL::to('/') . '/images/' . $product_images[0]; ?>"></div>
           <div class="title-prd">{{$product->name}}</div>
           <div class="price-prd">{{$product->price}} <span class="price-i">VNĐ/kg</span></div>
-          <div class="btn btn-primary pull-right"><a class="order-btn" href="product.html">Đặt hàng</a></div>
+          <div class="btn btn-primary pull-right"><a class="order-btn" href="<?php echo URL::to('/product/') . '/' . $product->id; ?>">Đặt hàng</a></div>
         </div>
         @endforeach
       </div>
