@@ -37,16 +37,12 @@
           @if (Auth::guest())
             <li><a href="{{ url('/') }}">Trang chủ</a></li>
             <li><a href="{{ url('/gioithieu') }}">Giới thiệu</a></li>
-            <li><a href="{{ url('/tintuc') }}">Tin tức</a></li>
-            <li><a href="{{ url('/muatructuyen') }}">Mua trực tuyến</a></li>
             <li><a href="{{ url('/phanhoi') }}">Phản hồi</a></li>
             <li><a href="{{ url('/lienhe') }}">Liên hệ</a></li>
             <li><a href="{{ route('login') }}">Login</a></li>
           @else
             <li><a href="{{ url('/gioithieu/edit') }}">Giới thiệu</a></li>
             <li><a href="{{ url('/news/admin') }}">Tin tức</a></li>
-            <li><a href="{{ url('/dathang') }}">Đặt hàng</a></li>
-            <li><a href="{{ url('/phanhoi') }}">Liên hệ</a></li>
             <li><a href="{{ url('/category') }}">Danh mục</a></li>
             <li><a href="{{ url('/product') }}">Sản phẩm</a></li>
             <li class="dropdown">

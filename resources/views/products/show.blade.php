@@ -37,14 +37,12 @@
 </div>
 
 <p>{{ link_to_route('product.index', 'Danh sách nông sản') }} | {{ link_to_route('product.create', 'Thêm nông sản') }}</p>
-
 <script type="text/javascript">
 $(document).ready(function(){
   $("#add-order").click(function(){
-    
     if (typeof(Storage) !== "undefined") {
+      // localStorage.removeItem("order");
       var order = localStorage.getItem("order");
-      console.log(JSON.parse('[' + order + ']'));
       var product = {
                       id: $('#product_id').val(), 
                       name:$('.sp-name').text(), 
@@ -54,22 +52,9 @@ $(document).ready(function(){
       if(order == null){
         localStorage.setItem("order", JSON.stringify(product));
       }else{
-        var $array_data = JSON.parse('[' + order + ']');
-        var $flag = false;
-        for(var i = 0; i < $array_data.length; i++){
-          if($array_data[i].id == product.id){
-            $array_data[i].numb += product.numb;
-            $flag == true;
-          }
-        }
-        if($flag){
-          localStorage.setItem("order", JSON.stringify(order));
-        }else{
-          localStorage.setItem("order", order + ',' + JSON.stringify(order));
-        }
-        
+        localStorage.setItem("order", order + ';' + JSON.stringify(product));
       }
-      // window.location.replace("<?php echo URL::to('/order/'); ?>");
+      window.location.replace("<?php echo URL::to('/order/'); ?>");
     } else {
       // Sorry! No Web Storage support..
       alert('Trình duyệt của bạn không hộ trợ mua hàng trực tuyến.<br /> Xin hãy liên hệ qua số điện thoại ghi bên trái màn hình để được hỗ trợ! <br /> Xin cảm ơn!');
